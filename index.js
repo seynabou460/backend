@@ -16,11 +16,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/hotels', hotelRoutes);
 console.log('🧪 URI utilisée :', process.env.MONGO_URI);
 
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('✅ Connecté à MongoDB');
     app.listen(5000, () => {
